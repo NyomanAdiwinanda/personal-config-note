@@ -1,0 +1,5 @@
+alias mysql="mysql -u root -p"
+alias icloud="cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs"
+alias slp="pmset sleepnow"
+alias python=/usr/local/bin/python3export PATH="$HOME/.rbenv/bin:$PATH"
+alias air='$(go env GOPATH)/bin/air'
