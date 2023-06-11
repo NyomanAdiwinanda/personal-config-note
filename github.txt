@@ -1,0 +1,55 @@
+GitHub
+
+Gitconfig Global
+git config --global --edit
+
+[user]
+  name = <name>
+  email = <email>
+# Enforce SSH
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/
+[merge]
+  tool = vscode
+[core]
+  editor = code --wait --new-window
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[diff]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+
+
+Setup SSH Github
+ssh-keygen -t ed25519 -C <email>
+
+touch .ssh/config
+
+nano .ssh/config:
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+get the ssh public key value:
+cat .ssh/id_ed25519.pub
+
+copy the value into your github ssh setting
+
+check if it’s works:
+ssh -T git@github.com
+
+
+Multiple SSH keys github
+list all currently used ssh keys:
+ssh-add -l
+
+delete currently used ssh keys:
+ssh-add -d ~/.ssh/id_ed25519
+
+add ssh keys to be used:
+ssh-add ~/.ssh/id_ed25519

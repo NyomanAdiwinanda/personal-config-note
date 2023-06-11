@@ -1,0 +1,25 @@
+Xcode Terminal Setup
+
+1. touch open-iterm-from-xcode.sh
+
+2. nano open-iterm-from-xcode.sh:
+	#!/bin/sh
+	dir="$PWD"
+	# remove a potential suffix in case Xcode shows a Swift Package
+	suffix="/.swiftpm/xcode"
+	dir=${dir//$suffix/}
+	open -a iterm "$dir"
+
+3. chmod +x open-iterm-from-xcode
+
+4. Open Xcode -> settings -> behaviors
+
+5. Klik + icon and give it a name (example: iTerm)
+
+6. Scroll down and tick the `run` section with choose the .sh file
+
+
+Remove UserInterfaceState.xcuserstate
+
+git rm --cached [project].xcodeproj/project.xcworkspace/xcuserdata/[username].xcuserdatad/UserInterfaceState.xcuserstate
+git commit -m "Removed file that shouldn't be tracked"
